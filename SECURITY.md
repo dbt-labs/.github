@@ -1,63 +1,55 @@
-# Security Policy
+# Security policy
 
-## Reporting a Vulnerability
+This policy covers every repository in the [dbt-labs](https://github.com/dbt-labs) organization that does not publish its own `SECURITY.md`.
 
-If you believe you have found a security vulnerability in this project, we encourage you to report it responsibly. **Please do not open a public GitHub issue for security vulnerabilities.**
+**Do not report security vulnerabilities through public GitHub issues, pull requests, or discussions.**
 
-### How to Report
+## Report a vulnerability
 
-Use GitHub's built-in private vulnerability reporting to submit your report:
+- **Code in this organization:** use GitHub private vulnerability reporting on the affected repository. Open its **Security and quality** tab (under **⋯** if hidden) and click **Report a vulnerability**, or go to `https://github.com/dbt-labs/<REPO_NAME>/security/advisories/new`. If no repository fits, use `https://github.com/dbt-labs/.github/security/advisories/new`.
+- **dbt platform and dbt Labs websites** (`*.getdbt.com`, `*.dbt.com`, `*.dbtlabs.com`): report through the [Fivetran Bugcrowd program](https://bugcrowd.com/engagements/fivetran-mbb-og), which covers dbt Labs. Its program brief governs those reports, including testing rules, disclosure, and safe harbor.
 
-1. Navigate to the **Security** tab of this repository.
-2. Click **"Report a vulnerability"** under **Private vulnerability reporting**.
-3. Fill out the advisory form with as much detail as possible.
+If a code vulnerability also affects the dbt platform, report the code issue on GitHub and any platform-only impact, such as access to other customers' data, through Bugcrowd.
 
-Alternatively, you can go directly to:
+### What to include
 
-```
-https://github.com/dbt-labs/<REPO_NAME>/security/advisories/new
-```
+- The affected repository or package, and the version or commit.
+- A description of the vulnerability and its impact.
+- Steps to reproduce, with a proof of concept if you have one.
+- Your suggested severity, if any.
+- How you would like to be credited.
 
-Replace `<REPO_NAME>` with the name of the affected repository.
+## What to expect
 
-### What to Include
+For reports made through GitHub private vulnerability reporting:
 
-To help us understand and resolve the issue quickly, please include:
+- **Acknowledgment:** within **10 business days**. If you have not heard from us by then, comment on your advisory.
+- **Updates:** at least every **30 business days** until the report is resolved.
+- **Disclosure:** we coordinate a disclosure date with you, by default 90 days from the report, adjusted for severity and fix complexity.
+- **Advisory and credit:** for confirmed vulnerabilities in released versions, we publish a GitHub Security Advisory and request a CVE where appropriate, crediting you unless you prefer to stay anonymous.
 
-- A description of the vulnerability and its potential impact.
-- Step-by-step instructions to reproduce the issue.
-- The affected version(s) of the project.
-- Any relevant logs, screenshots, or proof-of-concept code.
-- Your suggested severity (Critical, High, Medium, Low) if you have one.
+## Scope
 
-### What to Expect
+In scope: code, CI workflows, and other content in this organization's public repositories, on the default branch and in every release that still receives security fixes (see [dbt version support](https://docs.getdbt.com/docs/dbt-versions/core)).
 
-- **Acknowledgment:** We will acknowledge receipt of your report within **3 business days**.
-- **Updates:** We will provide status updates as we investigate, typically within **10 business days**.
-- **Resolution:** Once a fix is ready, we will coordinate disclosure with you before making any public announcement.
+This includes untrusted input, including files from dependencies, that makes dbt do more than the invoked command is designed to do, such as running a command, writing outside the project, or exposing a credential.
 
-### Scope
+Generally out of scope:
 
-This policy applies to the latest supported release of this project. If you are unsure whether a version is still supported, please include the version details in your report and we will let you know.
+- Models, macros, hooks, and other code from a dbt project or its installed packages doing what dbt is designed to let them do, including reading environment variables with `env_var`, when you run a command that executes that code.
+- Vulnerabilities in third-party dependencies without a demonstrated exploit path through our code. Report those upstream.
+- Automated scanner or AI-generated output without a verified reproduction and demonstrated impact.
+- Example, workshop, and demo repositories, except exposed credentials, CI workflow flaws, and issues that affect anyone beyond the example.
+- Denial-of-service testing against our services or others' systems, social engineering, physical attacks, and spam.
 
-### Guidelines
+## Guidelines and safe harbor
+
+These guidelines and this safe harbor cover research on the code above. The Bugcrowd program brief governs testing of our services.
 
 We ask that you:
 
-- Give us a reasonable amount of time to address the issue before making any public disclosure.
-- Make a good-faith effort to avoid disrupting the project, its infrastructure, or its users during your research.
-- Do not access, modify, or delete data that does not belong to you.
+- Test only against your own systems, accounts, and data. Stop and report if you access data that is not yours, and do not keep it.
+- Do not publish proof-of-concept packages to the dbt package hub or another public registry. Use a local or private package.
+- Keep the report confidential until we publish an advisory or the agreed or default disclosure date passes.
 
-## Supported Versions
-
-| Version | Supported |
-| ------- | --------- |
-| Latest  | Yes       |
-
-For questions about which versions are actively maintained, please refer to the project's release documentation.
-
-## Thank You
-
-We appreciate the security research community's efforts in helping keep dbt Labs and our users safe. Responsible disclosure makes the open-source ecosystem stronger for everyone.
-
-For urgent/critical issues, please reach out to the [dbt Labs Security Team](mailto:security+ghreport@dbtlabs.com)
+We consider security research conducted in good faith under this policy to be authorized, and we will not pursue legal action against you for it. If a third party brings legal action against you for activity that complied with this policy, we will make this authorization known.
