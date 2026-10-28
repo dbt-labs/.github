@@ -1,4 +1,4 @@
-# Security policy
+# Security reporting and disclosure
 
 This policy covers every repository in the [dbt-labs](https://github.com/dbt-labs) organization that does not publish its own `SECURITY.md`.
 
@@ -42,14 +42,12 @@ Generally out of scope:
 - Example, workshop, and demo repositories, except exposed credentials, CI workflow flaws, and issues that affect anyone beyond the example.
 - Denial-of-service testing against our services or others' systems, social engineering, physical attacks, and spam.
 
-## Guidelines and safe harbor
+## Guidelines
 
-These guidelines and this safe harbor cover research on the code above. The Bugcrowd program brief governs testing of our services.
+These guidelines cover research on the code above. The Bugcrowd program brief governs testing of our services.
 
 We ask that you:
 
 - Test only against your own systems, accounts, and data. Stop and report if you access data that is not yours, and do not keep it.
 - Do not publish proof-of-concept packages to the dbt package hub or another public registry. Use a local or private package.
 - Keep the report confidential until we publish an advisory or the agreed or default disclosure date passes.
-
-We consider security research conducted in good faith under this policy to be authorized, and we will not pursue legal action against you for it. If a third party brings legal action against you for activity that complied with this policy, we will make this authorization known.
